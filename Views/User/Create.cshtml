@@ -1,0 +1,16 @@
+﻿@model UnknownMVC.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model=>model.UserName)
+        @Html.TextBoxFor(model=>model.UserName)
+    </div>
+    <input type="submit" name="Create User" />
+}

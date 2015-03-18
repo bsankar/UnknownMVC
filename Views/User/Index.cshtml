@@ -1,0 +1,18 @@
+﻿@model List<UnknownMVC.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if(Model==null || Model.Count==0)
+{
+    <h2>No records found</h2>
+}
+else
+{
+foreach(UnknownMVC.Models.User a in Model)
+{
+    <h2>@a.UserName</h2><br />
+}
+}
