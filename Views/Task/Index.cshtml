@@ -1,0 +1,18 @@
+﻿@model List<UnknownMVC.Models.Task>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if(Model==null || Model.Count==0)
+{
+    <h1>No records found</h1>
+ }
+else
+{
+foreach(UnknownMVC.Models.Task tsk in Model)
+{
+    <h2>@tsk.TaskDescription</h2><br/>
+    
+}
+}
