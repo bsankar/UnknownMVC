@@ -1,7 +1,9 @@
 ﻿@model List<UnknownMVC.Models.Task>
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutOne.cshtml";
 }
+
 
 <h2>Index</h2>
 @if(Model==null || Model.Count==0)

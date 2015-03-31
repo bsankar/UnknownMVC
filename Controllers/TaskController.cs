@@ -49,7 +49,7 @@ namespace UnknownMVC.Controllers
             try
             {
                 // TODO: Add insert logic here
-                var m = new Task { TaskUser = new User { UserID=1 }, TaskDescription = "Test", TaskCreated=DateTime.Now };
+                var m = new Task { TaskUser = new User { UserID=1 }, TaskDescription = collection["TaskDescription"].ToString(), TaskCreated=DateTime.Now };
                 tsks.Tasks.Add(m);
                 tsks.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,6 +58,26 @@ namespace UnknownMVC.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public JsonResult MobileCreate(Task tsk)
+        {
+            String status = "";
+            try
+            {
+                // TODO: Add insert logic here
+                var m = new Task { TaskUser = tsk.TaskUser, TaskDescription = tsk.TaskDescription.ToString(), TaskCreated = DateTime.Now };
+                tsks.Tasks.Add(m);
+                tsks.SaveChanges();
+                status = "Success";
+            }
+            catch
+            {
+                status="Failure";
+            }
+
+            return Json(status);
         }
 
         //
@@ -70,6 +90,7 @@ namespace UnknownMVC.Controllers
 
         //
         // POST: /Task/Edit/5
+
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
